@@ -13,4 +13,4 @@ Bring your web pages to life with this captivating animation project built entir
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/TemesgenMeles/Ghost-Animation-with-Html-and-CSS.git
+   [git clone https://github.com/TemesgenMeles/Ghost-Animation-with-Html-and-CSS.git](https://github.com/TemesgenMeles/Ghost-Animation-with-Html-and-CSS.git)
