@@ -1,0 +1,160 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Acorn bold";
+    src: url('../fonts/acorn bold.ttf');
+}
+
+body {
+    background-color: rgb(0, 22, 41);
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    height: 100vh;
+    font-family: 'Acorn bold';
+}
+
+.title {
+    color: #38effc;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 7rem;
+}
+
+@property --col {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: #38effc;
+}
+
+@property --degr {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+@keyframes animate {
+    0% {
+        --degr: 0deg;
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(150px);
+    }
+
+    50% {
+        transform: translateX(0);
+    }
+
+    75% {
+        transform: translateX(-150px);
+    }
+
+    100% {
+        --degr: 360deg;
+        transform: translateX(0);
+    }
+
+} 
+
+.box {
+    position: relative;
+    width: 160px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 3rem;
+    background-image: repeating-conic-gradient(from var(--degr), linen 0%, transparent 50%);
+    border-radius: 50% 50% 0 0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, calc(100% - 20px) calc(100% - 20px), calc(100% - 40px) 100%, calc(100% - 60px) calc(100% - 25px), calc(100% - 80px) 100%, calc(100% - 100px) calc(100% - 20px), calc(100% - 120px) 100%, calc(100% - 140px) calc(100% - 15px) , 0 100%);
+    animation: animate 2s linear infinite; 
+}
+
+.box1 {
+    background-image: repeating-conic-gradient(from var(--degr), orange 0%, transparent 50%);
+}
+
+.box2 {
+    background-image: repeating-conic-gradient(from var(--degr), firebrick 0% 30%, transparent 50%);
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background-color: rgb(0, 22, 41);
+    border-radius: 50% 50% 0 0;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2px), calc(100% - 18px) calc(100% - 22px), calc(100% - 38px) calc(100% - 2px), calc(100% - 58px) calc(100% - 27px), calc(100% - 78px) calc(100% - 2px), calc(100% - 98px) calc(100% - 22px), calc(100% - 118px) calc(100% - 2px), calc(100% - 138px) calc(100% - 17px) , 0 calc(100% - 2px));
+}
+
+.eyes {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.box .eye::after {
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 30px;
+    background-color: linen;
+    border-radius: 50%;
+}
+
+.box1 .eye::after {
+    background-color: orange;
+}
+
+.box2 .eye::after {
+    background-color: firebrick;
+}
+
+.mouth {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.mouth span::after {
+    position: absolute;
+    left: 25%;
+    content: '';
+    width: 90px;
+    height: 10px;
+    border-radius: 0 0 300% 300%;
+    background-color: linen;
+}
+
+.box1 .mouth span::after {
+    background-color: orange;
+}
+
+.box2 .mouth span::after {
+    background-color: firebrick;
+}
+
+.box:hover, .box:hover .eye::after, .box:hover .mouth span::after {
+    --col: #ff2770
+}
